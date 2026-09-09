@@ -6,13 +6,6 @@
 -- we can add SUM, we can add count distinct, we can do Group by & order by
 
 
-CREATE SCHEMA gold;
-
-ALTER SCHEMA gold TRANSFER dbo.[gold.dim_customers];
-
-ALTER SCHEMA gold TRANSFER dbo.[gold.products];
-
-
 USE DATAWAREHOUSEANALYSIS;
 
 select
