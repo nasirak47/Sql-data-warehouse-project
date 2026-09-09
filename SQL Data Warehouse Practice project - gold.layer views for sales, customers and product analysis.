@@ -1,0 +1,38 @@
+# SQL Data Warehouse Project
+
+A hands-on SQL project built on SQL Server 2025, focused on transforming raw sales data into analytics-ready views using a medallion-style architecture (gold layer).
+
+## Overview
+
+This project uses a `DatawarehouseAnalytics` database with a `gold` schema containing fact and dimension tables, plus reporting views built on top of them for customer and product analysis.
+
+### Core Tables
+- `gold.fact_sales` — transactional sales data (orders, quantities, sales amounts)
+- `gold.dim_customers` — customer details (names, birthdate, customer keys)
+- `gold.dim_products` — product details (names, categories, cost)
+
+### Reporting Views
+- **`gold.report_customers`** — consolidates customer-level metrics including:
+  - Age and age group segmentation
+  - Customer segment (VIP / Regular / New) based on spending and lifespan
+  - Total orders, total sales, total quantity, total products purchased
+
+  - **`gold.report_products`** — consolidates product-level metrics including:
+  - Product performance segment (High-Performer / Mid-Range / Low-Performer)
+  - Total orders, total sales, total quantity, total customers
+  - Average selling price
+  - Recency (months since last sale)
+  - Average order revenue and average monthly revenue
+
+## Skills Practiced
+- CTEs (Common Table Expressions) and multi-step query chaining
+- Window functions (`SUM() OVER`, `AVG() OVER`, `LAG()`)
+- `CASE` statements for segmentation logic
+- Aggregate functions (`SUM`, `COUNT`, `AVG`, `MAX`, `MIN`)
+- Date functions (`DATEDIFF`, `YEAR`, `MONTH`, `GETDATE`)
+- Creating and managing schemas and views
+- Deriving new measures from dimensions and new dimensions from measures
+
+## Tools Used
+- SQL Server 2025 (Developer Edition)
+- SQL Server Management Studio (SSMS)
